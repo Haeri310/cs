@@ -114,3 +114,17 @@ optValue.stream()
 optEmpty.stream()
         .forEach(s -> System.out.println("optValue.stream() -> " + s));
 ```
+
+## ✅ Optional 의 올바른 사용처
+
+### 메서드의 반환 값으로만 사용하라
+
+```java
+public Optional<String> getNameAsOptional(name) {
+    return Optional.ofNullable(name);
+}
+```
+- 필드 Optional 금지
+- 메서드의 매개변수 Optional 금지 
+- 캘렉션과 배열 타입 Optional 금지 (대신 `isEmpty()` 사용할 것)
+- `isPresent()` 와 `get()` 조합 사용 금지 (null 체크와 다름없다. Optional 사용하는 이유가 없게된다.)
